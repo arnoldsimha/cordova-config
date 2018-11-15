@@ -11,7 +11,6 @@
 var fs = require('fs');
 var et = require('elementtree');
 var pify = require('pify');
-var Promise = require('pinkie-promise');
 
 module.exports = (function () {
 	var _this = {
@@ -218,7 +217,7 @@ module.exports = (function () {
 	 * @param {string}    identifier        The iOS CFBundleIdentifier.
 	 */
 	Config.prototype.setIOSBundleIdentifier = function (identifier) {
-		var regex = new RegExp('^[\\w.]+$');
+		var regex = new RegExp('^[\\w-.]+$');
 
 		if (!regex.test(identifier)) {
 			// If the identifier is not valid, throw an error.
